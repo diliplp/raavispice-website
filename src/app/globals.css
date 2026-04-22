@@ -1,0 +1,171 @@
+/* Premium Font Stack: Cinzel + Cormorant + Raleway + Great Vibes */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-cream bg-forest-green antialiased;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.8;
+    font-weight: 400;
+  }
+
+  /* Cinzel for main headings - regal, commanding, prestigious */
+  h1,
+  h2 {
+    @apply font-heading text-antique-gold;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Cormorant for subheadings - elegant, refined curves */
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-subheading text-antique-gold;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Paragraph text - Raleway for clean readability */
+  p {
+    @apply font-body;
+    font-weight: 400;
+  }
+
+  ::selection {
+    @apply bg-antique-gold text-forest-green;
+  }
+}
+
+/* Component Styles */
+@layer components {
+
+  /* Primary Button - Cinzel for prestigious CTAs */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-10 py-4 font-heading text-xs font-medium text-forest-green bg-antique-gold border border-antique-gold transition-all duration-300 ease-out hover:bg-transparent hover:text-antique-gold hover:-translate-y-0.5;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 10px 30px rgba(201, 169, 98, 0.2);
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-10 py-4 font-heading text-xs font-medium text-antique-gold bg-transparent border border-antique-gold transition-all duration-300 ease-out hover:bg-antique-gold hover:text-forest-green;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  /* Section Styles */
+  .section {
+    @apply py-24 px-6 lg:px-12;
+  }
+
+  .section-light {
+    @apply bg-cream text-charcoal;
+  }
+
+  .section-light h1,
+  .section-light h2,
+  .section-light h3,
+  .section-light h4 {
+    @apply text-forest-green;
+  }
+
+  /* Decorative Gold Line */
+  .gold-line {
+    @apply w-16 h-px bg-antique-gold mx-auto my-6;
+  }
+
+  .gold-line-left {
+    @apply mx-0;
+  }
+
+  /* Nav Link - Cinzel for premium navigation */
+  .nav-link {
+    @apply relative font-heading text-xs font-medium text-cream py-2 transition-colors duration-300 hover:text-antique-gold;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-antique-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Menu Item */
+  .menu-item {
+    @apply flex justify-between items-start py-6 border-b border-antique-gold/20 last:border-0;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-deep-green border border-antique-gold/20 overflow-hidden transition-all duration-500 ease-out hover:-translate-y-2 hover:border-antique-gold;
+  }
+
+  .card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Utility Styles */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-antique-gold to-champagne-gold bg-clip-text text-transparent;
+  }
+
+  /* Hero Overlay - stronger for video backgrounds */
+  .hero-overlay {
+    background: linear-gradient(180deg,
+        rgba(30, 57, 50, 0.1) 0%,
+        rgba(30, 57, 50, 0.3) 40%,
+        rgba(30, 57, 50, 0.8) 100%);
+  }
+
+  /* Spice Particle Colors */
+  .particle-saffron {
+    background-color: #E6A817;
+  }
+
+  .particle-turmeric {
+    background-color: #D4A84B;
+  }
+
+  .particle-chili {
+    background-color: #C41E3A;
+  }
+
+  .particle-cardamom {
+    background-color: #7B8B6F;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
