@@ -1,7 +1,15 @@
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-function getResend() {
-  return new Resend(process.env.RESEND_API_KEY!)
+function getTransporter() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT),
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  })
 }
 
 export async function POST(request: Request) {
@@ -16,9 +24,9 @@ export async function POST(request: Request) {
       )
     }
 
-    const { data, error } = await getResend().emails.send({
-      from: 'Raavi Spice <noreply@raavispice.com>',
-      to: ['hello@raavispice.com'],
+    await getTransporter().sendMail({
+      from: `"Raavi Spice Website" <${process.env.SMTP_FROM}>`,
+      to: process.env.SMTP_TO,
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: `
@@ -32,17 +40,10 @@ export async function POST(request: Request) {
       `,
     })
 
-    if (error) {
-      return Response.json(
-        { status: 'error', message: error.message },
-        { status: 500 }
-      )
-    }
-
-    return Response.json({ status: 'success', data })
+    return Response.json({ status: 'success' })
   } catch (error) {
     return Response.json(
-      { status: 'error', message: 'Internal server error' },
+      { status: 'error', message: 'Failed to send message' },
       { status: 500 }
     )
   }
