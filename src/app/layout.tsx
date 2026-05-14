@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description: 'From the Five Rivers to the Thames - Experience authentic Pakistani cuisine in West Drayton, London.',
     type: 'website',
     locale: 'en_GB',
+    siteName: 'Raavi Spice',
+    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Raavi Spice | Authentic Pakistani Cuisine',
+    description: 'From the Five Rivers to the Thames - Experience authentic Pakistani cuisine in West Drayton, London.',
+    images: ['/images/og-image.jpg'],
   },
   icons: {
     icon: '/images/favicon-raavispice.png',
