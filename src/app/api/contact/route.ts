@@ -17,8 +17,8 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await getResend().emails.send({
-      from: 'Raavi Spice <onboarding@resend.dev>',
-      to: ['dilipparmar@gmail.com'],
+      from: 'Raavi Spice <noreply@raavispice.com>',
+      to: ['hello@raavispice.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: `
