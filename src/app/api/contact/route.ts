@@ -41,9 +41,9 @@ export async function POST(request: Request) {
     })
 
     return Response.json({ status: 'success' })
-  } catch (error) {
+  } catch (error: any) {
     return Response.json(
-      { status: 'error', message: 'Failed to send message' },
+      { status: 'error', message: error.message || 'Failed to send message' },
       { status: 500 }
     )
   }
