@@ -80,29 +80,28 @@ export async function POST(request: Request) {
 
     const resend = getResend()
 
-    const [restaurantRes, autoRes] = await Promise.allSettled([
-      resend.emails.send({
-        from: 'Raavi Spice <noreply@raavispice.com>',
-        to: ['hello@raavispice.com'],
-        bcc: ['dilipparmar@gmail.com'],
-        replyTo: email,
-        subject: `[Website] ${subject} from ${name}`,
-        html: restaurantEmailHtml(body),
-      }),
-      resend.emails.send({
-        from: 'Raavi Spice <noreply@raavispice.com>',
-        to: [email],
-        subject: 'Thank you for contacting Raavi Spice',
-        html: autoResponseHtml(name),
-      }),
-    ])
+    const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
+      from: 'Raavi Spice <noreply@raavispice.com>',
+      to: ['hello@raavispice.com'],
+      bcc: ['dilipparmar@gmail.com'],
+      replyTo: email,
+      subject: `[Website] ${subject} from ${name}`,
+      html: restaurantEmailHtml(body),
+    })
 
-    if (restaurantRes.status === 'rejected') {
+    if (restaurantErr) {
       return Response.json(
-        { status: 'error', message: restaurantRes.reason.message },
+        { status: 'error', message: restaurantErr.message },
         { status: 500 }
       )
     }
+
+    await resend.emails.send({
+      from: 'Raavi Spice <noreply@raavispice.com>',
+      to: [email],
+      subject: 'Thank you for contacting Raavi Spice',
+      html: autoResponseHtml(name),
+    })
 
     return Response.json({ status: 'success' })
   } catch (error: any) {
