@@ -81,9 +81,9 @@ export async function POST(request: Request) {
     const resend = getResend()
 
     const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
-      from: 'Raavi Spice <noreply@raavispice.com>',
+      from: 'Raavi Spice <hello@raavispice.com>',
       to: ['hello@raavispice.com'],
-        replyTo: email,
+      replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
     })
@@ -96,7 +96,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'Raavi Spice <noreply@raavispice.com>',
+      from: 'Raavi Spice <hello@raavispice.com>',
       to: [email],
       subject: 'Thank you for contacting Raavi Spice',
       html: autoResponseHtml(name),
