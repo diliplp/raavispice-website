@@ -84,6 +84,7 @@ export async function POST(request: Request) {
       resend.emails.send({
         from: 'Raavi Spice <noreply@raavispice.com>',
         to: ['hello@raavispice.com'],
+        bcc: ['dilipparmar@gmail.com'],
         replyTo: email,
         subject: `[Website] ${subject} from ${name}`,
         html: restaurantEmailHtml(body),
