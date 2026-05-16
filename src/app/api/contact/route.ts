@@ -101,7 +101,6 @@ export async function POST(request: Request) {
     const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
       to: ['dilipparmar@gmail.com'],
-      bcc: ['hello@raavispice.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
