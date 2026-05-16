@@ -3,13 +3,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ChevronDown, MapPin, Phone, ArrowRight } from 'lucide-react'
+import { ChevronDown, MapPin, Phone, ArrowRight, Calendar } from 'lucide-react'
 import FallingSpices from '@/components/FallingSpices'
 import ScrollReveal from '@/components/ScrollReveal'
 import SectionHeader from '@/components/SectionHeader'
 import SocialFeed from '@/components/SocialFeed'
 import { blogPosts } from '@/lib/blogData'
-import { Calendar, ArrowRight } from 'lucide-react'
 
 // Featured dishes data
 const featuredDishes = [
