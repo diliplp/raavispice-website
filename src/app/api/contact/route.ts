@@ -79,6 +79,8 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, email, phone, subject, message } = body
 
+    console.log('[contact] Received submission:', { name, email, subject })
+
     if (!name || !email || !subject || !message) {
       return Response.json(
         { status: 'error', message: 'Missing required fields' },
@@ -88,13 +90,17 @@ export async function POST(request: Request) {
 
     // Save to Supabase first — ensures data is captured even if email fails
     const supabase = getSupabase()
-    const { error: supabaseError } = await supabase.from('contact_submissions').insert({
+    console.log('[contact] Attempting Supabase insert...')
+
+    const { data: insertData, error: supabaseError } = await supabase.from('contact_submissions').insert({
       name,
       email,
       phone: phone || null,
       subject,
       message,
     })
+
+    console.log('[contact] Supabase response:', { insertData, supabaseError })
 
     if (supabaseError) {
       console.error('Supabase insert error:', supabaseError)
@@ -104,6 +110,9 @@ export async function POST(request: Request) {
       )
     }
 
+    console.log('[contact] Supabase insert successful')
+
+    console.log('[contact] Sending restaurant email...')
     const resend = getResend()
 
     const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
@@ -114,6 +123,8 @@ export async function POST(request: Request) {
       html: restaurantEmailHtml(body),
     })
 
+    console.log('[contact] Restaurant email response:', { restaurantRes, restaurantErr })
+
     if (restaurantErr) {
       return Response.json(
         { status: 'error', message: restaurantErr.message },
@@ -121,6 +132,7 @@ export async function POST(request: Request) {
       )
     }
 
+    console.log('[contact] Sending auto-response...')
     await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
       to: [email],
@@ -128,6 +140,7 @@ export async function POST(request: Request) {
       html: autoResponseHtml(name),
     })
 
+    console.log('[contact] Form submission complete - success')
     return Response.json({ status: 'success' })
   } catch (error: any) {
     return Response.json(
