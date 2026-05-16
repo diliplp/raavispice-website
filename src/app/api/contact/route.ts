@@ -82,7 +82,7 @@ export async function POST(request: Request) {
 
     const { error: restaurantErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
-      to: ['hello@raavispice.com'],
+      to: ['dilipparmar@gmail.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
