@@ -41,6 +41,9 @@ export default function Footer() {
               <Link href="/menu" className="text-cream/70 hover:text-antique-gold transition-colors">
                 Menu
               </Link>
+              <Link href="/blog" className="text-cream/70 hover:text-antique-gold transition-colors">
+                Blog
+              </Link>
               <Link href="/reservations" className="text-cream/70 hover:text-antique-gold transition-colors">
                 Reservations
               </Link>
