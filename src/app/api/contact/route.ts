@@ -1,7 +1,15 @@
 import { Resend } from 'resend'
+import { createClient } from '@supabase/supabase-js'
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY!)
+}
+
+function getSupabase() {
+  return createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
 }
 
 const logoUrl = 'https://raavispice.com/images/logo.png'
@@ -78,12 +86,22 @@ export async function POST(request: Request) {
       )
     }
 
+    // Save to Supabase first — ensures data is captured even if email fails
+    const supabase = getSupabase()
+    await supabase.from('contact_submissions').insert({
+      name,
+      email,
+      phone: phone || null,
+      subject,
+      message,
+    })
+
     const resend = getResend()
 
     const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
-      to: ['hello@raavispice.com'],
-      bcc: ['dilipparmar@gmail.com'],
+      to: ['dilipparmar@gmail.com'],
+      bcc: ['hello@raavispice.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
