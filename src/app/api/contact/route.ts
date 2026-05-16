@@ -1,15 +1,7 @@
 import { Resend } from 'resend'
-import { createClient } from '@supabase/supabase-js'
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY!)
-}
-
-function getSupabase() {
-  return createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  )
 }
 
 const logoUrl = 'https://raavispice.com/images/logo.png'
@@ -79,8 +71,6 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, email, phone, subject, message } = body
 
-    console.log('[contact] Received submission:', { name, email, subject })
-
     if (!name || !email || !subject || !message) {
       return Response.json(
         { status: 'error', message: 'Missing required fields' },
@@ -88,42 +78,15 @@ export async function POST(request: Request) {
       )
     }
 
-    // Save to Supabase first — ensures data is captured even if email fails
-    const supabase = getSupabase()
-    console.log('[contact] Attempting Supabase insert...')
-
-    const { data: insertData, error: supabaseError } = await supabase.from('contact_submissions').insert({
-      name,
-      email,
-      phone: phone || null,
-      subject,
-      message,
-    })
-
-    console.log('[contact] Supabase response:', { insertData, supabaseError })
-
-    if (supabaseError) {
-      console.error('Supabase insert error:', supabaseError)
-      return Response.json(
-        { status: 'error', message: `Supabase error: ${supabaseError.message}` },
-        { status: 500 }
-      )
-    }
-
-    console.log('[contact] Supabase insert successful')
-
-    console.log('[contact] Sending restaurant email...')
     const resend = getResend()
 
-    const { data: restaurantRes, error: restaurantErr } = await resend.emails.send({
+    const { error: restaurantErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
-      to: ['dilipparmar@gmail.com'],
+      to: ['hello@raavispice.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
     })
-
-    console.log('[contact] Restaurant email response:', { restaurantRes, restaurantErr })
 
     if (restaurantErr) {
       return Response.json(
@@ -132,7 +95,6 @@ export async function POST(request: Request) {
       )
     }
 
-    console.log('[contact] Sending auto-response...')
     await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
       to: [email],
@@ -140,7 +102,6 @@ export async function POST(request: Request) {
       html: autoResponseHtml(name),
     })
 
-    console.log('[contact] Form submission complete - success')
     return Response.json({ status: 'success' })
   } catch (error: any) {
     return Response.json(
