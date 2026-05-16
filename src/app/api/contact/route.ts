@@ -80,27 +80,39 @@ export async function POST(request: Request) {
 
     const resend = getResend()
 
-    const { error: restaurantErr } = await resend.emails.send({
+    console.log('Attempting to send email to restaurant...')
+    const { data: restaurantData, error: restaurantErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
       to: ['hello@raavispice.com'],
+      bcc: ['dilipparmar@gmail.com'],
       replyTo: email,
       subject: `[Website] ${subject} from ${name}`,
       html: restaurantEmailHtml(body),
     })
 
     if (restaurantErr) {
+      console.error('Restaurant email error:', restaurantErr)
       return Response.json(
         { status: 'error', message: restaurantErr.message },
         { status: 500 }
       )
     }
+    console.log('Restaurant email sent successfully:', restaurantData)
 
-    await resend.emails.send({
+    console.log('Attempting to send auto-response to user...')
+    const { data: userData, error: userErr } = await resend.emails.send({
       from: 'Raavi Spice <hello@raavispice.com>',
       to: [email],
       subject: 'Thank you for contacting Raavi Spice',
       html: autoResponseHtml(name),
     })
+    
+    if (userErr) {
+      console.error('User auto-response error:', userErr)
+      // We don't return 500 here because the restaurant already got the notification
+    } else {
+      console.log('User auto-response sent successfully:', userData)
+    }
 
     return Response.json({ status: 'success' })
   } catch (error: any) {

@@ -8,6 +8,8 @@ import FallingSpices from '@/components/FallingSpices'
 import ScrollReveal from '@/components/ScrollReveal'
 import SectionHeader from '@/components/SectionHeader'
 import SocialFeed from '@/components/SocialFeed'
+import { blogPosts } from '@/lib/blogData'
+import { Calendar, ArrowRight } from 'lucide-react'
 
 // Featured dishes data
 const featuredDishes = [
@@ -294,6 +296,58 @@ export default function HomeClient() {
 
       {/* Social Feed */}
       <SocialFeed />
+
+      {/* Blog Preview Section */}
+      <section className="section bg-forest-green border-t border-antique-gold/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeader
+            subtitle="Our Stories"
+            title="Latest from the Blog"
+            description="Explore the rich culinary landscape of Pakistan and the heritage behind our flavors."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post, index) => (
+              <ScrollReveal key={post.id} delay={index * 0.1}>
+                <Link href={`/blog/${post.id}`} className="group block h-full flex flex-col bg-deep-green border border-antique-gold/10 hover:border-antique-gold/30 transition-all duration-300">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 text-xs text-cream/50 mb-3 uppercase tracking-widest">
+                      <Calendar size={14} className="text-antique-gold" />
+                      {post.date}
+                    </div>
+                    <h3 className="font-heading text-xl text-antique-gold mb-3 group-hover:text-champagne-gold transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-cream/70 text-sm leading-relaxed mb-4 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-auto flex items-center gap-2 text-antique-gold font-medium text-sm group-hover:gap-3 transition-all">
+                      <span>Read Story</span>
+                      <ArrowRight size={16} />
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal delay={0.4}>
+            <div className="text-center mt-12">
+              <Link href="/blog" className="btn-secondary">
+                View All Stories
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Location Section */}
       <section className="section bg-dark-green">
