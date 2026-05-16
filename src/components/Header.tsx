@@ -56,7 +56,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="tel:+447927003000"
+              href="tel:+441895528170"
               className="btn-primary ml-4 flex items-center gap-2"
             >
               <Phone size={16} />
@@ -133,11 +133,11 @@ export default function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  href="tel:+447927003000"
+                  href="tel:+441895528170"
                   className="btn-primary mt-8 flex items-center gap-2"
                 >
                   <Phone size={16} />
-                  <span>+44 7927 003000</span>
+                  <span>+44 1895 528170</span>
                 </motion.a>
               </nav>
             </motion.div>
