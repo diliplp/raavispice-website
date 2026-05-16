@@ -88,13 +88,21 @@ export async function POST(request: Request) {
 
     // Save to Supabase first — ensures data is captured even if email fails
     const supabase = getSupabase()
-    await supabase.from('contact_submissions').insert({
+    const { error: supabaseError } = await supabase.from('contact_submissions').insert({
       name,
       email,
       phone: phone || null,
       subject,
       message,
     })
+
+    if (supabaseError) {
+      console.error('Supabase insert error:', supabaseError)
+      return Response.json(
+        { status: 'error', message: `Supabase error: ${supabaseError.message}` },
+        { status: 500 }
+      )
+    }
 
     const resend = getResend()
 
