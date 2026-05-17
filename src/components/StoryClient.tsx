@@ -10,7 +10,7 @@ export default function StoryClient() {
         tagline="Our Heritage"
         title="Our Story"
         subtitle="A culinary journey from the banks of the Raavi River to the heart of London"
-        image="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=1080&fit=crop"
+        image="/images/instafeed/our-story-beings-2.jpg"
       />
 
       {/* The Beginning */}

@@ -48,7 +48,7 @@ export default function MenuClient() {
         tagline="Culinary Excellence"
         title="Our Menu"
         subtitle="Traditional recipes crafted with the finest ingredients"
-        image="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&h=1080&fit=crop"
+        image="/images/hero-image.webp"
       />
 
       {/* Sticky Category Navigation */}

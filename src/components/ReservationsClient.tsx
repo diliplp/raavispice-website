@@ -12,7 +12,7 @@ export default function ReservationsClient() {
         tagline="Join Us"
         title="Reserve a Table"
         subtitle="Experience the warmth of Pakistani hospitality"
-        image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop"
+        image="/images/instafeed/cooking.jpg"
       />
 
       <section className="section bg-forest-green">

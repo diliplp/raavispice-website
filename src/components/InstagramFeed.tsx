@@ -8,37 +8,37 @@ import ScrollReveal from './ScrollReveal'
 const instagramPosts = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=400&fit=crop',
+    image: '/images/instafeed/from-the-heart-of-punjab.jpg',
     caption: 'Sizzling lamb karahi fresh from the wok 🔥',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=400&fit=crop',
+    image: '/images/instafeed/rice.jpg',
     caption: 'Aromatic chicken biryani layered with love 🍚',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=400&fit=crop',
+    image: '/images/instafeed/nihari.jpg',
     caption: 'Seekh kebabs straight from the tandoor 🍢',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=400&fit=crop',
+    image: '/images/instafeed/tum-mein-aur-chai.jpg',
     caption: 'Our secret spice blend ✨',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&h=400&fit=crop',
+    image: '/images/instafeed/from-our-garden.jpg',
     caption: 'Freshly baked naan from the tandoor 🫓',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=400&fit=crop',
+    image: '/images/instafeed/lahore-to-you.jpg',
     caption: 'Creamy butter chicken perfection 🧈',
     link: 'https://www.instagram.com/raavispiceofficial/',
   },

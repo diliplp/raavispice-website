@@ -56,7 +56,7 @@ export default function ContactClient() {
         tagline="Get in Touch"
         title="Contact Us"
         subtitle="We'd love to hear from you"
-        image="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920&h=1080&fit=crop"
+        image="/images/instafeed/cooking.jpg"
       />
 
       <section className="section bg-forest-green">
