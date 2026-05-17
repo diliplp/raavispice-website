@@ -4,12 +4,13 @@ import BlogPostClient from '@/components/BlogPostClient'
 import { notFound } from 'next/navigation'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogPosts.find((p) => p.id === params.id)
-  
+  const { id } = await params
+  const post = blogPosts.find((p) => p.id === id)
+
   if (!post) return { title: 'Post Not Found' }
 
   return {
@@ -29,8 +30,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = blogPosts.find((p) => p.id === params.id)
+export default async function BlogPostPage({ params }: Props) {
+  const { id } = await params
+  const post = blogPosts.find((p) => p.id === id)
 
   if (!post) {
     notFound()
