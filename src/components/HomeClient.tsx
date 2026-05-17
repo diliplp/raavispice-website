@@ -45,7 +45,7 @@ export default function HomeClient() {
         
         {/* Video Background */}
         <div className="absolute inset-0 z-0 bg-black overflow-hidden">
-          {/* Main desktop hero - Landscape */}
+          {/* Main desktop hero - Native Landscape */}
           <video
             autoPlay
             muted
@@ -55,7 +55,7 @@ export default function HomeClient() {
             poster="/images/hero-desktop-poster.webp"
             className="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-10"
           >
-            <source src="/videos/hero-desktop-org-large.mp4" type="video/mp4" />
+            <source src="/videos/Slowmotion_spices_being_desktop.mp4" type="video/mp4" />
           </video>
 
           {/* Mobile hero */}
