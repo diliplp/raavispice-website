@@ -45,17 +45,29 @@ export default function HomeClient() {
         
         {/* Video Background */}
         <div className="absolute inset-0 z-0 bg-black overflow-hidden">
-          {/* Main desktop hero - Native Landscape */}
+          {/* Blur layer — tiny 204KB file, quality invisible under blur-2xl */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
-            poster="/images/hero-desktop-poster.webp"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-10"
+            preload="metadata"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-60 blur-2xl scale-125"
           >
-            <source src="/videos/Slowmotion_spices_being_desktop.mp4" type="video/mp4" />
+            <source src="/videos/hero-desktop-blur.mp4" type="video/mp4" />
+          </video>
+
+          {/* Main desktop hero */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/hero-desktop-poster.webp"
+            className="hidden md:block absolute inset-0 w-full h-full object-contain object-center z-10"
+          >
+            <source src="/videos/hero-desktop.mp4" type="video/mp4" />
           </video>
 
           {/* Mobile hero */}
