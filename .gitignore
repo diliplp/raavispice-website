@@ -32,3 +32,8 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original/backup media files
+public/videos/*-original.mp4
+public/images/*-original.webp
+public/images/*-original.jpg
