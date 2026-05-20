@@ -20,18 +20,18 @@ const featuredDishes = [
     price: '£14.99',
   },
   {
-    name: 'RAHU FISH',
-    description: 'Rahu fish fillets seasoned with fragrant spices. Choice of Fried or Grilled Masala.',
-    image: '/images/instafeed/rahu-masal-fish.jpg',
-    video: '/videos/rahu-fish.mp4',
-    price: '£19.99 (1/2kg)',
+    name: 'RS LAMB BURGER',
+    description: 'Double juicy lamb patties seasoned with aromatic spices, served in a soft bun with fresh toppings and golden crispy steak-cut chips.',
+    image: '/images/instafeed/from-the-heart-of-punjab.jpg',
+    video: '/videos/01.BURGERRS.V2.mp4',
+    price: '£17.99',
   },
   {
-    name: 'BLOOMING ONION',
-    description: 'A whole onion sliced into a “flower,” seasoned, battered. Served crispy & golden with our signature dipping sauce.',
-    image: '/images/instafeed/booming-onion.jpg',
-    video: '/videos/blooming-onion.mp4',
-    price: '£9.99',
+    name: 'GOL GAPPE',
+    description: 'Crunchy puris served with spiced chickpea-potato filling and tangy tamarind water. A beloved Lahori street food classic.',
+    image: '/images/instafeed/lahore-to-you.jpg',
+    video: '/videos/golgappyraavispice.mp4',
+    price: '£4.99',
   },
 ]
 

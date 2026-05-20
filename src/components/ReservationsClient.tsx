@@ -50,12 +50,12 @@ export default function ReservationsClient() {
                   </h3>
                   <div className="space-y-3 text-cream/80">
                     <div className="flex justify-between">
-                      <span>Mon - Sat</span>
+                      <span>Mon - Fri</span>
                       <span>11:00 - 23:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>11:00 - 22:00</span>
+                      <span>Sat - Sun</span>
+                      <span>10:00 - 22:00</span>
                     </div>
                   </div>
                 </div>

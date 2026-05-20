@@ -149,12 +149,12 @@ export default function ContactClient() {
                       </h3>
                       <div className="space-y-2 text-cream/80">
                         <div className="flex justify-between gap-8">
-                          <span>Monday - Saturday</span>
+                          <span>Monday - Friday</span>
                           <span>11:00 AM - 11:00 PM</span>
                         </div>
                         <div className="flex justify-between gap-8">
-                          <span>Sunday</span>
-                          <span>11:00 AM - 10:00 PM</span>
+                          <span>Saturday - Sunday</span>
+                          <span>10:00 AM - 10:00 PM</span>
                         </div>
                       </div>
                     </div>
