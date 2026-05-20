@@ -167,7 +167,7 @@ export default function HomeClient() {
             {featuredDishes.map((dish, index) => (
               <ScrollReveal key={dish.name} delay={index * 0.15}>
                 <div className="card group">
-                  <div className="aspect-[4/3] overflow-hidden relative">
+                  <div className="aspect-[9/16] overflow-hidden relative">
                     {dish.video && (
                       <video
                         autoPlay
