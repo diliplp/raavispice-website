@@ -30,6 +30,28 @@ export default function LocationsIndexPage() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          {/* Flagship Location */}
+          <Link 
+            href="/"
+            className="group p-8 border border-antique-gold rounded-xl bg-dark-green/40 hover:bg-dark-green/60 transition-all shadow-[0_0_20px_rgba(212,175,55,0.1)]"
+          >
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <span className="text-xs font-medium text-antique-gold uppercase tracking-widest mb-1 block">Flagship Location</span>
+                <h3 className="text-2xl text-antique-gold font-subheading group-hover:text-cream transition-colors">
+                  West Drayton
+                </h3>
+              </div>
+              <MapPin size={24} className="text-antique-gold" />
+            </div>
+            <p className="text-cream/70 mb-6">
+              Our main restaurant in the heart of West Drayton, where the Raavi Spice journey begins. Traditional charcoal grills and luxury dining.
+            </p>
+            <div className="flex items-center gap-2 text-antique-gold font-medium group-hover:gap-4 transition-all">
+              Visit Homepage <ArrowRight size={18} />
+            </div>
+          </Link>
+
           {Object.values(locations).map((loc) => (
             <Link 
               key={loc.slug} 

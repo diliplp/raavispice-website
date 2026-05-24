@@ -59,6 +59,7 @@ export default function Footer() {
               Service Areas
             </h4>
             <nav className="grid grid-cols-1 gap-x-4 gap-y-3">
+              <Link href="/" className="text-antique-gold hover:text-cream transition-colors text-sm font-medium">West Drayton (Flagship)</Link>
               <Link href="/locations/uxbridge" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Uxbridge</Link>
               <Link href="/locations/slough" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Slough</Link>
               <Link href="/locations/hayes" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Hayes</Link>
