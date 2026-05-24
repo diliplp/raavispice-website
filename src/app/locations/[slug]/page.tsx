@@ -7,11 +7,12 @@ import Link from 'next/link'
 import { MapPin, Clock, Phone, ArrowRight } from 'lucide-react'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const location = locations[params.slug]
+  const { slug } = await params
+  const location = locations[slug]
   if (!location) return {}
 
   return {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: location.description,
     keywords: location.keywords.join(', '),
     alternates: {
-      canonical: `https://raavispice.com/locations/${params.slug}`,
+      canonical: `https://raavispice.com/locations/${slug}`,
     },
   }
 }
@@ -30,8 +31,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function LocationPage({ params }: Props) {
-  const location = locations[params.slug]
+export default async function LocationPage({ params }: Props) {
+  const { slug } = await params
+  const location = locations[slug]
 
   if (!location) {
     notFound()
