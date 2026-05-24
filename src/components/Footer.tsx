@@ -111,9 +111,23 @@ export default function Footer() {
 
         {/* Social & Copyright */}
         <div className="mt-16 pt-8 border-t border-cream/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-cream/50 text-sm" suppressHydrationWarning>
-            &copy; {new Date().getFullYear()} Raavi Spice. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-cream/50 text-sm" suppressHydrationWarning>
+              &copy; {new Date().getFullYear()} Raavi Spice. All rights reserved.
+            </p>
+            <span className="hidden md:inline text-cream/20">|</span>
+            <p className="text-cream/50 text-sm">
+              Designed by{' '}
+              <a 
+                href="https://webadish.co.uk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-antique-gold transition-colors underline decoration-cream/20 underline-offset-4"
+              >
+                webadish.co.uk
+              </a>
+            </p>
+          </div>
 
           <div className="flex items-center gap-6">
             <a
