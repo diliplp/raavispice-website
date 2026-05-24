@@ -71,30 +71,7 @@ export default function BlogClient() {
           </div>
         </div>
       </section>
+      </>
+      )
+      }
 
-      {/* Newsletter Teaser */}
-      <section className="section section-light">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-h1 text-forest-green mb-6">
-              Stay in the Loop
-            </h2>
-            <p className="text-lg text-charcoal/80 mb-8">
-              Subscribe to our newsletter to receive recipes, heritage stories, and exclusive offers directly in your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="flex-1 px-6 py-3 border border-forest-green/20 focus:border-antique-gold focus:outline-none"
-              />
-              <button className="btn-primary">
-                Subscribe
-              </button>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-    </>
-  )
-}
