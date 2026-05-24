@@ -39,6 +39,19 @@ export default function StructuredData() {
       }
     ],
     'servesCuisine': ['Pakistani', 'Punjabi', 'Desi', 'Halal'],
+    'areaServed': [
+      { '@type': 'Place', 'name': 'West Drayton' },
+      { '@type': 'Place', 'name': 'Uxbridge' },
+      { '@type': 'Place', 'name': 'Hillingdon' },
+      { '@type': 'Place', 'name': 'Hayes' },
+      { '@type': 'Place', 'name': 'Slough' },
+      { '@type': 'Place', 'name': 'Southall' },
+      { '@type': 'Place', 'name': 'Hounslow' },
+      { '@type': 'Place', 'name': 'Northolt' },
+      { '@type': 'Place', 'name': 'Harrow' },
+      { '@type': 'Place', 'name': 'Iver' },
+      { '@type': 'Place', 'name': 'Yiewsley' }
+    ],
     'priceRange': '££',
     'hasMenu': 'https://raavispice.com/menu/',
     'menu': 'https://raavispice.com/menu/',

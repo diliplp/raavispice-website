@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark-green border-t border-antique-gold">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div>
             <Image
@@ -50,6 +50,23 @@ export default function Footer() {
               <Link href="/contact" className="text-cream/70 hover:text-antique-gold transition-colors">
                 Contact
               </Link>
+            </nav>
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="font-subheading text-lg text-antique-gold mb-6">
+              Service Areas
+            </h4>
+            <nav className="grid grid-cols-1 gap-x-4 gap-y-3">
+              <Link href="/locations/uxbridge" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Uxbridge</Link>
+              <Link href="/locations/slough" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Slough</Link>
+              <Link href="/locations/hayes" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Hayes</Link>
+              <Link href="/locations/southall" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Southall</Link>
+              <Link href="/locations/hounslow" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Hounslow</Link>
+              <Link href="/locations/hillingdon" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Hillingdon</Link>
+              <Link href="/locations/iver" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Iver</Link>
+              <Link href="/locations/harrow" className="text-cream/70 hover:text-antique-gold transition-colors text-sm">Harrow</Link>
             </nav>
           </div>
 

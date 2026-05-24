@@ -26,7 +26,7 @@ This project is a luxury restaurant website for **Raavi Spice**, specializing in
 
 ### 1. Development
 - **Start Dev Server:** `npm run dev`
-- **Build Production:** `npm run build` (Generates `out/` directory)
+- **Build & Preview:** `npm run build && npm run start`
 
 ### 2. Menu Management
 The menu is managed externally via Excel/CSV and synced into the codebase to keep the UI up-to-date without manual JSON editing.
@@ -36,12 +36,13 @@ The menu is managed externally via Excel/CSV and synced into the codebase to kee
   2. Run the sync script.
   3. The script preserves metadata (dietary info, spice levels, signature status) by referencing `src/lib/menuData.ts.backup`.
 
-### 3. Deployment (Hostinger)
-- **Method:** Static export upload.
-- **Steps:**
-  1. Run `npm run build`.
-  2. Upload all contents of the `out/` folder to Hostinger's `public_html`.
-  3. Ensure `.htaccess` (located in `public/.htaccess`) is correctly configured for clean URLs.
+### 3. Deployment (Vercel)
+- **Method:** Automated deployment via GitHub integration.
+- **Process:** 
+  1. Push changes to the `main` branch.
+  2. Vercel automatically detects the push and triggers a production build.
+  3. Environment variables (if any) are managed in the Vercel Dashboard.
+- **Domain:** Primary domain is `raavispice.com`. Redirects for `.co.uk` are handled in `next.config.js` and Vercel domain settings.
 
 ## 🎨 Design System
 
