@@ -477,7 +477,7 @@ export const blogPosts: BlogPost[] = [
       <p>Come into Raavi Spice when the weather turns. Let us feed you properly. The stove has been on since before we opened, and whatever you need to get warm is already cooking.</p>
     `,
     date: 'November 30, 2025',
-    image: '/images/instafeed/cold-morning.jpg',
+    image: '/images/menu-hero.jpeg',
     category: 'Cuisine',
     author: 'Head Chef'
   },
