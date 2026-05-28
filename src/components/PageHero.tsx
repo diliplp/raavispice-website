@@ -8,21 +8,35 @@ interface PageHeroProps {
   subtitle?: string
   tagline?: string
   image: string
+  variant?: 'image' | 'accent'
 }
 
-export default function PageHero({ title, subtitle, tagline, image }: PageHeroProps) {
+export default function PageHero({ title, subtitle, tagline, image, variant = 'image' }: PageHeroProps) {
+  const isAccent = variant === 'accent'
+
   return (
     <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-green via-forest-green/70 to-forest-green/30" />
+        {isAccent ? (
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#071d18_0%,#123b32_42%,#4a2b19_100%)]">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,29,24,0.12)_0%,rgba(7,29,24,0.42)_52%,rgba(30,57,50,0.92)_100%)]" />
+            <div className="absolute left-[-12%] top-0 h-full w-2/5 rotate-12 bg-antique-gold/10 blur-3xl" />
+            <div className="absolute right-[-8%] bottom-[-20%] h-3/5 w-1/2 -rotate-12 bg-champagne-gold/10 blur-3xl" />
+            <div className="absolute inset-0 opacity-[0.08] bg-[repeating-linear-gradient(45deg,transparent_0,transparent_24px,#f4e4b4_25px,#f4e4b4_26px)]" />
+          </div>
+        ) : (
+          <>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-forest-green via-forest-green/70 to-forest-green/30" />
+          </>
+        )}
       </div>
 
       {/* Content */}

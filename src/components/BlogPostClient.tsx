@@ -14,6 +14,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         tagline={post.category}
         title={post.title}
         image={post.image}
+        variant={post.heroVariant}
       />
 
       <section className="section bg-forest-green">

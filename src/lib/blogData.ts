@@ -5,6 +5,7 @@ export interface BlogPost {
   content: string
   date: string
   image: string
+  heroVariant?: 'image' | 'accent'
   category: 'Heritage' | 'Cuisine' | 'Community'
   author: string
 }
@@ -44,6 +45,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'May 10, 2026',
     image: '/images/instafeed/from-the-heart-of-punjab.jpg',
+    heroVariant: 'accent',
     category: 'Heritage',
     author: 'The Raavi Family'
   },
@@ -83,6 +85,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'May 12, 2026',
     image: '/images/instafeed/nihari.jpg',
+    heroVariant: 'accent',
     category: 'Cuisine',
     author: 'Head Chef'
   },
@@ -124,6 +127,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'May 14, 2026',
     image: '/images/instafeed/lahore-to-you.jpg',
+    heroVariant: 'accent',
     category: 'Community',
     author: 'The Raavi Family'
   },
@@ -169,6 +173,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'April 28, 2026',
     image: '/images/instafeed/from-the-heart-of-punjab.jpg',
+    heroVariant: 'accent',
     category: 'Cuisine',
     author: 'Head Chef'
   },
@@ -213,6 +218,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'April 10, 2026',
     image: '/images/instafeed/tum-mein-aur-chai.jpg',
+    heroVariant: 'accent',
     category: 'Cuisine',
     author: 'Head Chef'
   },
@@ -252,6 +258,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'March 31, 2026',
     image: '/images/instafeed/lahore-to-you.jpg',
+    heroVariant: 'accent',
     category: 'Community',
     author: 'The Raavi Family'
   },
@@ -350,6 +357,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'February 14, 2026',
     image: '/images/instafeed/from-the-heart-of-punjab.jpg',
+    heroVariant: 'accent',
     category: 'Heritage',
     author: 'Head Chef'
   },
@@ -391,6 +399,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'January 22, 2026',
     image: '/images/instafeed/charcol grill chef.jpg',
+    heroVariant: 'accent',
     category: 'Cuisine',
     author: 'Head Chef'
   },
@@ -431,6 +440,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'December 20, 2025',
     image: '/images/instafeed/lahore-to-you.jpg',
+    heroVariant: 'accent',
     category: 'Heritage',
     author: 'The Raavi Family'
   },
@@ -525,6 +535,7 @@ export const blogPosts: BlogPost[] = [
     `,
     date: 'November 8, 2025',
     image: '/images/instafeed/palak gosht.jpg',
+    heroVariant: 'accent',
     category: 'Cuisine',
     author: 'Head Chef'
   },
